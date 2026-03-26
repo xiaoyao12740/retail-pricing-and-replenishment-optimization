@@ -1,0 +1,27 @@
+%数据提取和整理
+data={
+    '花叶类',179;
+    '辣椒类',102;
+    '食用菌',83;
+    '花菜类',46;
+    '水生根茎类',34;
+    '茄类',17
+};
+%分离品类和数量
+categories=data(:,1);
+values=cell2mat(data(:,2));
+%创建条形图
+figure('Position',[100,100,800,500])
+bar(values)
+set(gca,'XTick',1:length(categories),'XTickLabel',categories)
+xtickangle(45)
+ylabel('数量')
+title('蔬菜大类数量统计')
+%添加数值标签
+text(1:length(values),values,num2str(values),...
+    'HorizontalAlignment','center',...
+    'VerticalAlignment','bottom')
+%调整布局
+set(gcf,'Color','w')
+set(gca,'FontSize',12)
+grid on

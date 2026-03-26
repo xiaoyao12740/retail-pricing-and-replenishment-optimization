@@ -1,0 +1,41 @@
+%数据提取和整理
+data={
+    '芜湖青椒',38;
+    '西兰花',36;
+    '西峡香菇',34;
+    '净藕',22;
+    '娃娃菜',18;
+    '竹叶菜',14;
+    '小米椒',13;
+    '黄白菜',11;
+    '云南生菜',10;
+    '云南生菜(份)',10;
+    '紫茄子',10;
+    '茴蒿',9;
+    '枝江青梗散花',9;
+    '奶白菜',8;
+    '泡泡椒',8;
+    '云南油麦菜',8;
+    '云南油麦菜(份)',8;
+    '西峡花菇',7;
+    '苋菜',7;
+    '菠菜',6
+};
+%分离品类和数量
+categories=data(:,1);
+values=cell2mat(data(:,2));
+%创建条形图
+figure('Position',[100,100,1200,600])
+bar(values)
+set(gca,'XTick',1:length(categories),'XTickLabel',categories)
+xtickangle(45)
+ylabel('数量')
+title('蔬菜品类数量统计')
+%添加数值标签
+text(1:length(values),values,num2str(values),...
+    'HorizontalAlignment','center',...
+    'VerticalAlignment','bottom')
+%调整布局
+set(gcf,'Color','w')
+set(gca,'FontSize',10)
+grid on
